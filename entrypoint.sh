@@ -15,7 +15,7 @@ echo 'Starting Aphrodite Engine API server...'
 CMD="python3 -m aphrodite.endpoints.openai.api_server
              --host 0.0.0.0
              ${PORT:+--port $PORT}
-             --download-dir ${HF_HOME:?}/hub
+             --download-dir /workspace/models
              ${MODEL_NAME:+--model $MODEL_NAME}
              ${REVISION:+--revision $REVISION}
              ${DATATYPE:+--dtype $DATATYPE}
