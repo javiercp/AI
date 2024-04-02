@@ -4,6 +4,8 @@ echo 'Getting the bridge...'
 cd /workspace/
 git clone https://github.com/Haidra-Org/AI-Horde-Worker
 cd AI-Horde-Worker && pip install -r requirements-scribe.txt
+
+echo 'Getting the engine...'
 pip install aphrodite-engine
 mkdir /workspace/models
 pip install pyyaml
