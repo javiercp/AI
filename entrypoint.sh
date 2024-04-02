@@ -22,7 +22,7 @@ BDDATA="{
     'suppress_speed_warnings': True,
 }"
 echo $BDDATA > /workspace/AI-Horde-Worker/bridgeData.yaml
-cd /workspace/AI-Horde-Worker && python bridge_scribe.py 
+cd /workspace/AI-Horde-Worker && python bridge_scribe.py &
 
 echo 'Starting Aphrodite Engine API server...'
 CMD="python3 -m aphrodite.endpoints.openai.api_server
