@@ -11,6 +11,9 @@ mkdir /workspace/models
 pip install pyyaml
 pip install -U prometheus-client
 
+#echo 'Starting Bridge...'
+#cd /workspace/AI-Horde-Worker && python bridge_scribe.py 
+
 echo 'Starting Aphrodite Engine API server...'
 CMD="python3 -m aphrodite.endpoints.openai.api_server
              --host 0.0.0.0
@@ -33,7 +36,6 @@ umask 002
 
 set -x
 
-exec $CMD &
+exec $CMD
 
-echo 'Starting Bridge...'
-cd /workspace/AI-Horde-Worker && python bridge_scribe.py 
+
