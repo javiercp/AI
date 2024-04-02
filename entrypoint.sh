@@ -34,7 +34,7 @@ CMD="python3 -m aphrodite.endpoints.openai.api_server
              ${REVISION:+--revision $REVISION}
              ${DATATYPE:+--dtype $DATATYPE}
              ${KVCACHE:+--kv-cache-dtype $KVCACHE}
-             ${MAX_SEQS:+--max-num-seqs $MAX_SEQS}
+             ${MAX_THREADS:+--max-num-seqs $((MAX_THREADS + 10))}
              ${CONTEXT_LENGTH:+--max-model-len $CONTEXT_LENGTH}
              ${NUM_GPUS:+--tensor-parallel-size $NUM_GPUS}
              ${GPU_MEMORY_UTILIZATION:+--gpu-memory-utilization $GPU_MEMORY_UTILIZATION}
