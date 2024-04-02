@@ -4,6 +4,10 @@ echo 'Getting the bridge...'
 cd /workspace/
 git clone https://github.com/Haidra-Org/AI-Horde-Worker
 cd AI-Horde-Worker && pip install -r requirements-scribe.txt
+pip install aphrodite-engine
+mkdir /workspace/models
+pip install pyyaml
+pip install -U prometheus-client
 
 echo 'Starting Aphrodite Engine API server...'
 CMD="python3 -m aphrodite.endpoints.openai.api_server
