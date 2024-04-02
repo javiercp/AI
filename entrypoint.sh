@@ -12,10 +12,10 @@ pip install pyyaml
 pip install -U prometheus-client
 
 echo 'Starting Aphrodite Engine API server...'
-CMD="python3 -m aphrodite.endpoints.openai.api_server
+python3 -m aphrodite.endpoints.openai.api_server
              --host 0.0.0.0
              ${PORT:+--port $PORT}
-             --download-dir /workspace/models
+             --download-dir ${HF_HOME:?}/hub
              ${MODEL_NAME:+--model $MODEL_NAME}
              ${REVISION:+--revision $REVISION}
              ${DATATYPE:+--dtype $DATATYPE}
@@ -26,11 +26,5 @@ CMD="python3 -m aphrodite.endpoints.openai.api_server
              ${QUANTIZATION:+--quantization $QUANTIZATION}
              ${ENFORCE_EAGER:+--enforce-eager}
              ${KOBOLD_API:+--launch-kobold-api}
-             ${CMD_ADDITIONAL_ARGUMENTS} & cd /workspace/AI-Horde-Worker && python bridge_scribe.py "
-
-# set umask to ensure group read / write at runtime
-umask 002
-
-set -x
-
-exec $CMD
+             ${CMD_ADDITIONAL_ARGUMENTS} & 
+cd /workspace/AI-Horde-Worker && python bridge_scribe.py
